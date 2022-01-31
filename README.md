@@ -1,2 +1,2 @@
 # ProblemSolving
-Competetive programming like data structure and 
+Competitive programming data structure and algorithm 
