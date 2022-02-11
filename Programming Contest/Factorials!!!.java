@@ -1,3 +1,4 @@
+//Timus 1083
 package programmingContest;
 import java.util.Scanner;
 
