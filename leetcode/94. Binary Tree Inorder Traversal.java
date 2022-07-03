@@ -1,3 +1,5 @@
+
+//
 class Solution {
     public List<Integer> inorderTraversal(TreeNode root) {
         ArrayList<Integer> list = new ArrayList<>();
@@ -17,21 +19,23 @@ class Solution {
 //
 
 class Solution {
-    public List<Integer> postorderTraversal(TreeNode root) {
-        LinkedList<Integer> list = new LinkedList();
+    public List<Integer> inorderTraversal(TreeNode root) {
+        List<Integer> list = new ArrayList<>();
         if(root==null) return list;
         Stack<TreeNode> stack = new Stack();
-        stack.add(root);
+        TreeNode curr = root;
         
-        while(!stack.isEmpty()){
-            TreeNode node = stack.pop();
-            list.addFirst(node.val);
-            if(node.left != null) stack.add(node.left);
-            if(node.right != null) stack.add(node.right);
-            
+        while(curr != null || !stack.isEmpty()){
+            while(curr != null){
+                stack.push(curr);
+                curr=curr.left;
+            }
+            curr= stack.pop();
+            list.add(curr.val);
+            curr = curr.right;
         }
         return list;
     }
 }
-//
 
+//
