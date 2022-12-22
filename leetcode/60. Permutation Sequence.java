@@ -1,28 +1,26 @@
+
+//Time Limit Exceeded
 class Solution {
-  public String getPermutation(int n, int k) {
-    int[] factorials = new int[n];
-    List<Integer> nums = new ArrayList() {{add(1);}};
-
-    factorials[0] = 1;
-    for(int i = 1; i < n; ++i) {
-      // generate factorial system bases 0!, 1!, ..., (n - 1)!
-      factorials[i] = factorials[i - 1] * i;
-      // generate nums 1, 2, ..., n
-      nums.add(i + 1);
+    public String str = "";
+    public int p  = 1;
+    public String getPermutation(int n, int k){
+        helper(new HashSet(), "", 1, n, k);
+        return str;
     }
-
-    // fit k in the interval 0 ... (n! - 1)
-    --k;
-
-    // compute factorial representation of k
-    StringBuilder sb = new StringBuilder();
-    for (int i = n - 1; i > -1; --i) {
-      int idx = k / factorials[i];
-      k -= idx * factorials[i];
-
-      sb.append(nums.get(idx));
-      nums.remove(idx);
+    public void helper(Set<Integer> set, String s, int start, int n, int k){
+        if(s.length()==n){
+            if(p==k) str = s;
+            p++;
+            return;
+        }
+        for(int i=start; i<=n; i++){
+            if(!set.contains(i)){
+                set.add(i);
+                helper(set, s + i, start, n, k);
+                set.remove(i);
+            }
+        }
     }
-    return sb.toString();
-  }
 }
+
+//
