@@ -1,3 +1,4 @@
+//SC ---- O(n) + O(n)
 class Solution {
     public boolean checkValid(int[][] matrix) {
         Set<Integer> set1 = new HashSet();
