@@ -7,5 +7,7 @@ public class Solution {
         int n2 = A[n-1]*A[0]*A[1];
         
         return Math.max(n1,n2);
+
+        //O(nlogn)
     }
 }
