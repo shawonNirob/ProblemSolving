@@ -29,3 +29,9 @@ class Solution {
         }
     }
 }
+
+
+//if ask for index number then use a map to store the index number of nums
+//
+
+
